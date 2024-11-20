@@ -13,7 +13,7 @@ app.use(bodyParser.json());
 const db = mysql.createConnection({
   host: "localhost",
   user: "root",
-  password: "Michael290604.",
+  password: ".", //input password
   database: "online_shop",
 });
 
