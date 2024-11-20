@@ -156,41 +156,6 @@ app.post("/logout", (req, res) => {
   });
 });
 
-//Send confirmation email endpoint
-app.post("/send-confirmation-email", (req, res) => {
-  const { email } = req.body; // Extract email, name, and orderId from the request body
-
-  // Configure the email transporter
-  const transporter = nodemailer.createTransport({
-    service: "yahoo",
-    auth: {
-      user: "zhengfushengmichael@gmail.com", // Replace with your Yahoo email
-      pass: "mckyahoo.", // Replace with your Yahoo app-specific password
-    },
-  });
-
-  // Email content
-  const mailOptions = {
-    from: "zhengfushengmichael@gmail.com", // Sender's email address
-    to: email, // Customer's email address
-    subject: "Order Confirmation",
-    text: "[Confirm order]",
-  };
-
-  // Send the email
-  transporter.sendMail(mailOptions, (error, info) => {
-    if (error) {
-      console.error("Error sending email:", error);
-      res.status(500).json({ success: false, message: "Failed to send email" });
-    } else {
-      console.log("Email sent:", info.response);
-      res
-        .status(200)
-        .json({ success: true, message: "Email sent successfully" });
-    }
-  });
-});
-
 // Add product to cart or update quantity if it already exists
 app.post("/cart", (req, res) => {
   const { userId, productId, quantity } = req.body;
