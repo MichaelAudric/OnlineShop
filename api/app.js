@@ -7,7 +7,14 @@ const jwt = require("jsonwebtoken");
 const nodemailer = require("nodemailer");
 
 const app = express();
-app.use(cors());
+
+// Allow requests from your frontend domain
+const corsOptions = {
+  origin: "https://online-shop-rho-one.vercel.app", // Frontend URL
+  optionsSuccessStatus: 200,
+};
+
+app.use(cors(corsOptions));
 app.use(bodyParser.json());
 
 const db = mysql.createConnection({
