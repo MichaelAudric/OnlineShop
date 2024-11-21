@@ -9,15 +9,10 @@ const nodemailer = require("nodemailer");
 const app = express();
 
 // Allow requests from your frontend domain
-const corsOptions = {
-  origin: "https://online-shop-rho-one.vercel.app", // Frontend URL
-  optionsSuccessStatus: 200,
-};
-
-// Allow requests from your frontend domain
 app.use(
   cors({
-    origin: "https://online-shop-rho-one.vercel.app", // Your frontend domain
+    origin: "https://online-shop-rho-one.vercel.app",
+    methods: ["GET", "POST"],
   })
 );
 app.use(bodyParser.json());
@@ -347,3 +342,8 @@ app.get("/orderHistory/:userID", (req, res) => {
 
 // Export the app for Vercel to handle
 module.exports = app;
+
+// Start the server
+app.listen(5000, () => {
+  console.log("Server running on port 5000");
+});
