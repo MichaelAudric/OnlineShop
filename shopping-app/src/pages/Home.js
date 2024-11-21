@@ -16,7 +16,7 @@ const Home = () => {
 
   // Fetch products
   useEffect(() => {
-    Axios.get("http://localhost:5000/products")
+    Axios.get("http://online-shop.vercel.app/api/products")
       .then((response) => {
         setProducts(response.data);
       })
@@ -26,7 +26,7 @@ const Home = () => {
   // Handle login
   const handleLogin = (e) => {
     e.preventDefault();
-    Axios.post("http://localhost:5000/login", {
+    Axios.post("http://online-shop.vercel.app/api/login", {
       username,
       password,
     })
@@ -46,7 +46,7 @@ const Home = () => {
   // Handle registration
   const handleRegister = (e) => {
     e.preventDefault();
-    Axios.post("http://localhost:5000/register", {
+    Axios.post("http://online-shop.vercel.app/api/register", {
       username,
       password,
       email,

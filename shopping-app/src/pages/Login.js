@@ -12,7 +12,7 @@ const Login = () => {
 
   const handleLogin = (e) => {
     e.preventDefault();
-    Axios.post("http://localhost:5000/login", form)
+    Axios.post("http://online-shop.vercel.app/api/login", form)
       .then((response) => {
         if (response.data.success) {
           // Save user info to localStorage

@@ -11,7 +11,7 @@ const Cart = () => {
   // Fetch cart items from the database
   useEffect(() => {
     if (!userID) return;
-    Axios.get(`http://localhost:5000/cart/${userID}`)
+    Axios.get(`http://online-shop.vercel.app/api/cart/${userID}`)
       .then((response) => {
         setCartItems(response.data);
         calculateTotalPrice(response.data);
@@ -33,7 +33,9 @@ const Cart = () => {
 
   // Handle item removal
   const handleRemoveItem = (productID) => {
-    Axios.delete(`http://localhost:5000/cart/${userID}/${productID}`)
+    Axios.delete(
+      `http://online-shop.vercel.app/api/cart/${userID}/${productID}`
+    )
       .then(() => {
         const updatedCartItems = cartItems.filter(
           (item) => item.productID !== productID
@@ -48,7 +50,7 @@ const Cart = () => {
 
   // Handle payment and move items to orderHistory
   const handlePay = () => {
-    Axios.post(`http://localhost:5000/cart/pay/${userID}`)
+    Axios.post(`http://online-shop.vercel.app/api/cart/pay/${userID}`)
       .then((response) => {
         // On success, clear cart and reset total price
         alert(response.data.message); // Success message

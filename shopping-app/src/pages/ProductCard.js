@@ -12,7 +12,7 @@ const ProductCard = ({ product, userID }) => {
       return;
     }
 
-    Axios.post("http://localhost:5000/cart", {
+    Axios.post("http://online-shop.vercel.app/api/cart", {
       userId: userID, // Pass the userID
       productId: product.id,
       quantity: quantity, // Pass the selected quantity
