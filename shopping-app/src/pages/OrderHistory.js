@@ -12,7 +12,7 @@ const OrderHistory = () => {
   useEffect(() => {
     if (!userID) return;
 
-    Axios.get(`http://online-shop.vercel.app/api/orderHistory/${userID}`)
+    Axios.get(`https://online-shop.vercel.app/api/orderHistory/${userID}`)
       .then((response) => {
         setOrderHistory(response.data);
       })
