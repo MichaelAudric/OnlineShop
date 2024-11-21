@@ -16,7 +16,7 @@
       "dest": "/shopping-app/build/index.html"
     },
     {
-      "src": "/api/(.*)",
+      "src": "/(.*)",
       "dest": "app.js"
     }
   ]
