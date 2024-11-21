@@ -14,7 +14,12 @@ const corsOptions = {
   optionsSuccessStatus: 200,
 };
 
-app.use(cors(corsOptions));
+// Allow requests from your frontend domain
+app.use(
+  cors({
+    origin: "https://online-shop-rho-one.vercel.app", // Your frontend domain
+  })
+);
 app.use(bodyParser.json());
 
 const db = mysql.createConnection({
