@@ -340,10 +340,10 @@ app.get("/orderHistory/:userID", (req, res) => {
   });
 });
 
-// Export the app for Vercel to handle
-module.exports = app;
-
 // Start the server
 app.listen(5000, () => {
   console.log("Server running on port 5000");
 });
+
+// Export the app for Vercel to handle
+module.exports = app;
