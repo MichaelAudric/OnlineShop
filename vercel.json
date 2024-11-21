@@ -1,15 +1,23 @@
 {
-  "projects": {
-    "frontend": {
-      "root": "shopping-app/",
-      "outputDirectory": "build",
-      "framework": "create-react-app"
-    }
-  },
-  "rewrites": [
+  "version": 2,
+  "builds": [
     {
-      "source": "/(.*)",
-      "destination": "/shopping-app/build/index.html"
+      "src": "shopping-app/package.json",
+      "use": "@vercel/react"
+    },
+    {
+      "src": "api/app.js",
+      "use": "@vercel/node"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "/shopping-app/build/index.html"
+    },
+    {
+      "src": "/api/(.*)",
+      "dest": "/api/app.js"
     }
   ]
 }
