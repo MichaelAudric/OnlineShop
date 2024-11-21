@@ -332,3 +332,6 @@ app.get("/orderHistory/:userID", (req, res) => {
     res.json(results);
   });
 });
+
+// Export the app for Vercel to handle
+module.exports = app;
