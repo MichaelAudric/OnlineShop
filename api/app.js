@@ -11,8 +11,8 @@ const app = express();
 // Allow requests from your frontend domain
 app.use(
   cors({
-    origin: "https://online-shop-rho-one.vercel.app",
-    methods: ["GET", "POST"],
+    origin: "*",
+    methods: ["GET", "POST", "DELETE"],
   })
 );
 app.use(bodyParser.json());
