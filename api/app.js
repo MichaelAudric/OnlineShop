@@ -8,11 +8,11 @@ const nodemailer = require("nodemailer");
 
 const app = express();
 
-// Allow requests from your frontend domain
 app.use(
   cors({
-    origin: "*",
-    methods: ["GET", "POST", "DELETE"],
+    origin: "https://online-shop-rho-one.vercel.app",
+    methods: ["GET", "POST", "PUT", "DELETE"], // Specify allowed HTTP methods
+    credentials: true, // If you need cookies/auth headers
   })
 );
 app.use(bodyParser.json());
