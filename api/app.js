@@ -30,7 +30,7 @@ db.connect((err) => {
 });
 
 // Start the server
-app.listen(5000, () => {
+app.listen(3306, () => {
   console.log("Server running on port 3306");
 });
 

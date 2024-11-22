@@ -51,7 +51,7 @@ const Cart = () => {
   // Handle payment and move items to orderHistory
   const handlePay = () => {
     Axios.post(
-      `https://online-shop-api-snowy.vercel.app.vercel.app/api/cart/pay/${userID}`
+      `https://online-shop-api-snowy.vercel.app/api/cart/pay/${userID}`
     )
       .then((response) => {
         // On success, clear cart and reset total price
