@@ -16,7 +16,7 @@ const Home = () => {
 
   // Fetch products
   useEffect(() => {
-    Axios.get("https://online-shop-api-snowy.vercel.app/api/products")
+    Axios.get("https://online-shop-api-snowy.vercel.app/products")
       .then((response) => {
         setProducts(response.data);
       })
