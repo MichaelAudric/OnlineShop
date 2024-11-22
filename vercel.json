@@ -2,22 +2,14 @@
   "version": 2,
   "builds": [
     {
-      "src": "shopping-app/package.json",
-      "use": "@vercel/react"
-    },
-    {
       "src": "app.js",
       "use": "@vercel/node"
     }
   ],
   "routes": [
     {
-      "src": "/(.*)",
-      "dest": "/shopping-app/build/index.html"
-    },
-    {
-      "src": "/(.*)",
-      "dest": "/app.js"
+      "src": "/api/(.*)",
+      "dest": "app.js"
     }
   ]
 }
