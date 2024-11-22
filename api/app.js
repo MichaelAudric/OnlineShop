@@ -18,10 +18,10 @@ app.use(
 app.use(bodyParser.json());
 
 const db = mysql.createConnection({
-  host: "localhost",
-  user: "root",
-  password: "mckmck3.",
-  database: "online_shop",
+  host: "bdpmeutrazyxffyqpytz-mysql.services.clever-cloud.com",
+  user: "uawdtogdhwsbypem",
+  password: "4KBDh3cNZPRhGcar8kSK",
+  database: "bdpmeutrazyxffyqpytz",
 });
 
 db.connect((err) => {
@@ -29,8 +29,9 @@ db.connect((err) => {
   console.log("MySQL Connected...");
 });
 
+// Start the server
 app.listen(5000, () => {
-  console.log("Server running on http://localhost:5000");
+  console.log("Server running on port 3306");
 });
 
 // Endpoint to get all products
@@ -338,11 +339,6 @@ app.get("/orderHistory/:userID", (req, res) => {
 
     res.json(results);
   });
-});
-
-// Start the server
-app.listen(5000, () => {
-  console.log("Server running on port 5000");
 });
 
 // Export the app for Vercel to handle
