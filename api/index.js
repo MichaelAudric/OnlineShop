@@ -26,10 +26,12 @@ db.connect((err) => {
   console.log("MySQL Connected...");
 });
 
-// // Start the server
-// app.listen(3306, () => {
-//   console.log("Server running on port 3306");
-// });
+// Start the server
+app.listen(3000, () => {
+  console.log("Server running on port 3000");
+});
+
+app.get("/", (req, res) => res.send("Express on Vercel"));
 
 // Endpoint to get all products
 app.get("/products", (req, res) => {
