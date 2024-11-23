@@ -12,7 +12,7 @@ const Login = () => {
 
   const handleLogin = (e) => {
     e.preventDefault();
-    Axios.post("https://online-shop-api-snowy.vercel.app/api/login", form)
+    Axios.post("https://online-shop-api-snowy.vercel.app/login", form)
       .then((response) => {
         if (response.data.success) {
           // Save user info to localStorage

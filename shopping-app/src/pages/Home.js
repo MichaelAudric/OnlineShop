@@ -26,7 +26,7 @@ const Home = () => {
   // Handle login
   const handleLogin = (e) => {
     e.preventDefault();
-    Axios.post("https://online-shop-api-snowy.vercel.app/api/login", {
+    Axios.post("https://online-shop-api-snowy.vercel.app/login", {
       username,
       password,
     })
@@ -46,7 +46,7 @@ const Home = () => {
   // Handle registration
   const handleRegister = (e) => {
     e.preventDefault();
-    Axios.post("https://online-shop-api-snowy.vercel.app/api/register", {
+    Axios.post("https://online-shop-api-snowy.vercel.app/register", {
       username,
       password,
       email,

@@ -13,7 +13,7 @@ const OrderHistory = () => {
     if (!userID) return;
 
     Axios.get(
-      `https://online-shop-api-snowy.vercel.app/api/orderHistory/${userID}`
+      `https://online-shop-api-snowy.vercel.app/orderHistory/${userID}`
     )
       .then((response) => {
         setOrderHistory(response.data);
