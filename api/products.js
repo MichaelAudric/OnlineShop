@@ -1,6 +1,4 @@
 const mysql = require("mysql");
-const cors = require("cors");
-const bodyParser = require("body-parser");
 
 // Database connection setup
 const db = mysql.createConnection({
@@ -11,22 +9,15 @@ const db = mysql.createConnection({
 });
 
 db.connect((err) => {
-  if (err) throw err;
+  if (err) {
+    console.error("MySQL Connection Error:", err);
+    return;
+  }
   console.log("MySQL Connected...");
 });
 
-// Vercel serverless function handler for /products
-module.exports = (req, res) => {
-  // Enable CORS
-  cors({
-    origin: "https://online-shop-rho-one.vercel.app",
-    methods: ["GET", "POST", "PUT", "DELETE"],
-    credentials: true,
-  })(req, res, () => {});
-
-  bodyParser.json()(req, res, () => {});
-
-  // Handle GET request to /products
+// Serverless function for products
+module.exports = async (req, res) => {
   if (req.method === "GET") {
     db.query("SELECT * FROM products", (err, results) => {
       if (err) {
@@ -36,6 +27,7 @@ module.exports = (req, res) => {
       res.status(200).json(results);
     });
   } else {
+    // Handle unsupported methods
     res.status(405).json({ error: "Method Not Allowed" });
   }
 };
