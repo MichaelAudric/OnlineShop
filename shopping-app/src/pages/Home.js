@@ -96,7 +96,7 @@ const Home = () => {
               color: "darkslategray",
             }}
           >
-            Mike's shop
+            Electronic shop
           </a>
           <div>
             {isLoggedIn ? (
